@@ -1,8 +1,9 @@
 <template>
   <div class="users">
       <h1>Usuários</h1>
-      <a href="#">Adicionar novo usuário </a>
-      <table>
+      <button type="button" class="btn btn-primary btn-lg">Adicionar novo usuário </button>
+      <p></p>
+      <table class="table table-hover">
     <tr>
         <th>id</th>
         <th>e-mail</th>

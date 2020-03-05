@@ -1,11 +1,14 @@
 <template>
   <div class="articles">
       <h1>Artigos</h1>
-      <a href="#">Fazer um novo artigo </a>
-      <table>
+      <button type="button" class="btn btn-primary btn-lg">Fazer um novo artigo </button>
+      <p></p>
+      <table class="table table-hover">
     <tr>
         <th>Título</th>
         <th>Criado</th>
+        <th></th>
+        <th></th>
     </tr>
     <tr>
         <td>
