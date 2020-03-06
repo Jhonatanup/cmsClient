@@ -10,36 +10,12 @@
         <th></th>
         <th></th>
     </tr>
-    <tr>
+    <tr v-for="r in articles">
         <td>
-            Blablablabla
+            {{r.title}}
         </td>
         <td>
-            20/02/2020
-        </td>
-        <td>
-            <a href="#">Editar </a>
-            <a href="#">Deletar </a>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            Blablablabla
-        </td>
-        <td>
-            20/02/2020
-        </td>
-        <td>
-            <a href="#">Editar </a>
-            <a href="#">Deletar </a>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            Blablablabla
-        </td>
-        <td>
-            20/02/2020
+            {{r.created}}
         </td>
         <td>
             <a href="#">Editar </a>
@@ -52,12 +28,27 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   name: 'articles',
+  id: {
+
+  },
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      articles: {}
     }
+  },
+  mounted () {
+    axios.get('http://localhost:8765/articles', {
+      headers: {
+        'Accept': 'application/json'
+      }
+    })
+      .then(res => {
+        this.articles = res.data.articles
+      })
   }
 }
 </script>

@@ -12,43 +12,21 @@
         <th>modificado</th>
         <th>ações</th>
     </tr>
-    <tr>
+    <tr v-for="r in users">
         <td>
-            1
+            {{r.id}}
         </td>
         <td>
-            jleandroweb@gmail.com
-        </td>
-        <td>
-            **********
-        </td>
-        <td>
-            3/3/20, 2:04 PM
-        </td>
-        <td>
-            11/3/20, 3:10 PM
-        </td>
-        <td>
-            <a href="#">Visualizar </a>
-            <a href="#">Editar </a>
-            <a href="#">Deletar </a>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            2
-        </td>
-        <td>
-            james@gmail.com
+            {{r.email}}
         </td>
         <td>
             **********
         </td>
         <td>
-            3/3/20, 2:04 PM
+            {{r.created}}
         </td>
         <td>
-            11/3/20, 3:10 PM
+            {{r.modified}}
         </td>
         <td>
             <a href="#">Visualizar </a>
@@ -61,12 +39,28 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   name: 'users',
+  id: {
+
+  },
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      users: {}
     }
+  },
+  mounted () {
+    axios.get('http://localhost:8765/users', {
+      headers: {
+        'Accept': 'application/json'
+      }
+    })
+      .then(res => {
+        // this.users = res.data.articles
+        this.users = res.data.users
+      })
   }
 }
 </script>
