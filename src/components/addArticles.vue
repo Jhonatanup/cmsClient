@@ -16,12 +16,31 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
-  name: 'addArticles',
+  name: 'articles',
+  id: {
+
+  },
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      articles: {}
     }
+  },
+  mounted () {
+    axios.post('http://localhost:8765/articles', {
+      headers: {
+        'Accept': 'application/json'
+      },
+      data: {
+        email: 'geilson@gmail.com ',
+        password: '123456'
+      }
+    })
+      .then(res => {
+        this.articles = res.data.articles
+      })
   }
 }
 </script>

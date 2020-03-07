@@ -12,7 +12,7 @@
         <th>modificado</th>
         <th>ações</th>
     </tr>
-    <tr v-for="r in users">
+    <tr v-for="r in users" :key="r">
         <td>
             {{r.id}}
         </td>

@@ -10,7 +10,7 @@
         <th></th>
         <th></th>
     </tr>
-    <tr v-for="r in articles">
+    <tr v-for="r in articles" :key="r">
         <td>
             {{r.title}}
         </td>
