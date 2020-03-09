@@ -10,7 +10,7 @@
         <th></th>
         <th></th>
     </tr>
-    <tr v-for="r in articles" :key="r">
+    <tr v-for="r in articles" :key="r.slug">
         <td>
             {{r.title}}
         </td>
@@ -18,6 +18,7 @@
             {{r.created}}
         </td>
         <td>
+            <a v-bind:href="'#/view/'+r.slug">Visualizar </a>
             <a href="#">Editar </a>
             <a href="#">Deletar </a>
         </td>

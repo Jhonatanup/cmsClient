@@ -16,6 +16,7 @@
 </template>
 
 <script>
+/*
 import axios from 'axios'
 
 export default {
@@ -39,10 +40,10 @@ export default {
       }
     })
       .then(res => {
-        this.articles = res.data.articles
+        console.log(res)
       })
   }
-}
+} */
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
