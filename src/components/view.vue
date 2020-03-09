@@ -8,19 +8,23 @@
 
 <script>
 import axios from 'axios'
+// import router from '../router'
 
 export default {
   name: 'view',
-  id: {
-
-  },
   data () {
     return {
+      viewId: 0,
+      url: '',
       article: {}
     }
   },
+  created () {
+    this.viewId = this.$route.params.viewId
+    this.url = 'http://localhost:8765/articles/view/' + this.viewId.toString()
+  },
   mounted () {
-    axios.get('http://localhost:8765/articles/view/Lorem-Ipsum', {
+    axios.get('http://localhost:8765/articles/view/' + this.viewId.toString(), {
       headers: {
         'Accept': 'application/json'
       }

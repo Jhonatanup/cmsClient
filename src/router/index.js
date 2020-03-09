@@ -31,7 +31,7 @@ export default new Router({
       component: addUsers
     },
     {
-      path: '/view/:viewid',
+      path: '/view/:viewId',
       name: 'view',
       component: view
     }
