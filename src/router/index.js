@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import addArticles from '@/components/addArticles'
+import addUsers from '@/components/addUsers'
 import users from '@/components/users'
 import articles from '@/components/articles'
 import view from '@/components/view'
@@ -25,7 +26,12 @@ export default new Router({
       component: addArticles
     },
     {
-      path: '/view',
+      path: '/addUsers',
+      name: 'addUsers',
+      component: addUsers
+    },
+    {
+      path: '/view/:viewid',
       name: 'view',
       component: view
     }

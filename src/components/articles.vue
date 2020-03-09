@@ -18,7 +18,8 @@
             {{r.created}}
         </td>
         <td>
-            <a v-bind:href="'#/view/'+r.slug">Visualizar </a>
+            <!-- <a v-bind:href="'#/view/'+r.slug">Visualizar </a> -->
+            <router-link :to="{ name: 'view', params: { viewid: r.slug }}">View</router-link>
             <a href="#">Editar </a>
             <a href="#">Deletar </a>
         </td>
