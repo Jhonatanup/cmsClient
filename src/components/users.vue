@@ -29,7 +29,7 @@
             {{r.modified}}
         </td>
         <td>
-            <a href="#">Visualizar </a>
+            <router-link :to="{ name: 'viewUsers', params: { viewId: r.id }}">View</router-link>
             <a href="#">Editar </a>
             <a href="#">Deletar </a>
         </td>

@@ -4,7 +4,8 @@ import addArticles from '@/components/addArticles'
 import addUsers from '@/components/addUsers'
 import users from '@/components/users'
 import articles from '@/components/articles'
-import view from '@/components/view'
+import viewArticles from '@/components/viewArticles'
+import viewUsers from '@/components/viewUsers'
 
 Vue.use(Router)
 
@@ -31,9 +32,14 @@ export default new Router({
       component: addUsers
     },
     {
-      path: '/view/:viewId',
-      name: 'view',
-      component: view
+      path: '/viewArticles/:viewId',
+      name: 'viewArticles',
+      component: viewArticles
+    },
+    {
+      path: '/viewUsers/:viewId',
+      name: 'viewUsers',
+      component: viewUsers
     }
   ]
 })
