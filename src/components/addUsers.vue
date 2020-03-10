@@ -1,26 +1,25 @@
 <template>
   <div class="form-group">
-    <h1>Adicionar novo User</h1>
-    <form method="post" accept-charset="utf-8" action="/users/add">
+    <h3>Adicionar novo User</h3>
+    <form method="post" accept-charset="utf-8">
         <fieldset>
             <div class="input email required">
             <label for="email">Email</label>
-            <input type="email" name="email" required="required" data-validity-message="This field cannot be left empty" oninvalid="this.setCustomValidity(''); if (!this.value) this.setCustomValidity(this.dataset.validityMessage)" oninput="this.setCustomValidity('')" id="email" maxlength="255"></div>
+            <input type="email" name="email" required="required" data-validity-message="Esse campo não pode estar vazio" oninvalid="this.setCustomValidity(''); if (!this.value) this.setCustomValidity(this.dataset.validityMessage)" oninput="this.setCustomValidity('')" id="email" maxlength="255"></div>
             <div class="input password required">
             <label for="password">Password</label>
-            <input type="password" name="password" required="required" data-validity-message="This field cannot be left empty" oninvalid="this.setCustomValidity(''); if (!this.value) this.setCustomValidity(this.dataset.validityMessage)" oninput="this.setCustomValidity('')" id="password"></div>
+            <input type="password" name="password" required="required" data-validity-message="Esse campo não pode estar vazio" oninvalid="this.setCustomValidity(''); if (!this.value) this.setCustomValidity(this.dataset.validityMessage)" oninput="this.setCustomValidity('')" id="password"></div>
         </fieldset>
-        <button type="submit">Submit</button>
+        <button type="submit" v-on:click="add">Submit</button>
     </form>
   </div>
 </template>
 
 <script>
-/*
 import axios from 'axios'
 
 export default {
-  name: 'articles',
+  name: 'addUsers',
   id: {
 
   },
@@ -29,21 +28,29 @@ export default {
       articles: {}
     }
   },
-  mounted () {
-    axios.post('http://localhost:8765/articles', {
-      headers: {
-        'Accept': 'application/json'
-      },
-      data: {
-        email: 'geilson@gmail.com ',
-        password: '123456'
+  methods: {
+    add (event) {
+      event.preventDefault()
+      const qs = require('querystring')
+      const requestBody = {
+        email: document.getElementById('email').value,
+        password: document.getElementById('password').value
       }
-    })
-      .then(res => {
-        console.log(res)
-      })
+      const config = {
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        }
+      }
+      axios.post('http://localhost:8765/users/add', qs.stringify(requestBody), config)
+        .then((result) => {
+          console.log(result.data)
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+    }
   }
-} */
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -61,5 +68,9 @@ li {
 }
 a {
   color: #42b983;
+}
+.form-group{
+  margin-left: auto;
+  margin-right: auto;
 }
 </style>
